@@ -1,0 +1,50 @@
+{% include 'staff_header.html' %}
+<style>
+table {
+	font-family: times new roman;
+	border-collapse: collapse;
+	width: 100%;
+}
+td, th{
+	border: 1px solid #dddddd;
+	text-align: center;
+	padding: 8px;
+	}
+</style>
+
+ <div class="container" style="margin:0 auto;width: 80%;">
+ 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 100px;">
+    <div class="card" >
+        <h5 class="card-header">Exam Results</h5>
+        <div class="card-body">
+            <div class="table-responsive ">
+                <table class="table table-bordered">
+                    <thead style="background: #ff407b;color: #FFF">
+                        <tr class="white">
+	                        <th>S.No</th>
+							<th>Exam Name</th>
+							<th>Mark</th>
+							<th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in row %}
+                        <tr>
+					        <td>{{forloop.counter}}</td>
+							<td>{{i.1}}</td>
+							<td>{{i.0}}/10</td>
+							<td>{% if i.0 > 5 %}<span style="color:green;font-size:18px;font-weight: bold;">Pass</span>{% else %}<span style="color:red;font-size:18px;font-weight: bold;">Fail</span>{% endif %}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="8" class="text-center bg-primary">No Results</td>
+                        </tr>
+                       {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

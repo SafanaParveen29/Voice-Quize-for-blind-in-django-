@@ -1,0 +1,54 @@
+{% include 'staff_header.html' %}
+<style>
+table {
+	font-family: times new roman;
+	border-collapse: collapse;
+	width: 100%;
+}
+td, th{
+	border: 1px solid #dddddd;
+	text-align: center;
+	padding: 8px;
+	}
+</style>
+
+ <div class="container" style="margin:0 auto;width: 80%;">
+ 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 100px;">
+    <div class="card" >
+        <h5 class="card-header">Student Details</h5>
+        <div class="card-body">
+            <div class="table-responsive ">
+                <table class="table table-bordered">
+                    <thead style="background: #ff407b;color: #FFF">
+                        <tr class="white">
+	                        <th>S.No</th>
+							<th>Student Name</th>
+							<th>University Number</th>
+                            <th>Email Id</th>
+                            <th>Mobile Number</th>
+							<th>Option</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in row %}
+                        <tr>
+					        <td>{{forloop.counter}}</td>
+							<td>{{i.student_name}}</td>
+                            <td>{{i.university_no}}</td>
+							<td>{{i.email_id}}</td>
+                            <td>{{i.phone_number}}</td>
+                            <td><a href="{% url 'all_students_result' pk=i.id %}" class="btn btn-info"><i class="fa fa-eye"> Results</i></a></td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="8" class="text-center bg-primary">No Results</td>
+                        </tr>
+                       {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

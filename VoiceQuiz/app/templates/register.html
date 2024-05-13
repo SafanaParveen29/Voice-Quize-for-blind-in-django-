@@ -1,0 +1,52 @@
+{%include 'temheader.html'%}
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row no-gutters justify-content-center " style="padding-bottom: 0;">
+          <div class="col-md-7 text-center heading-section ftco-animate" style="padding-top: 30px;">
+            <h2 style="font-size: 26px;color: #FFF;"> Register Here</h2><br>
+          </div>
+        </div>
+		
+        <div class="row d-flex">
+        <center>
+          <div class="col-md-8 ftco-animate makereservation p-5 bg-light">
+              {% if messages %}
+              {% for i in messages %}
+                <div class="alert alert-success">{{i}}</div>
+              {% endfor %}
+            {% endif %}
+            <form  method="post">{% csrf_token %}
+              <div class="row">
+			
+                    <label for=""> Name</label>
+                    <input type="text" class="form-control" name="uname"  required="required">
+                    <label for="">Mobile Number</label>
+                    <input type="number" class="form-control" name="mobile"  required="required">
+                 
+                    <label for="">Email</label>
+                    <input type="email" class="form-control" name="email" required="required">
+                     <label for="">Username</label>
+                    <input type="text" class="form-control" name="university_no" >
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" name="pwd"  required="required">
+                     <label for="">Country</label>
+                    <input type="text" class="form-control" name="country"  required="required">
+                     <label for="">State</label>
+                    <input type="text" class="form-control" name="state"  required="required">
+                     <label for="">City</label>
+                    <input type="text" class="form-control" name="city"  required="required">
+                    <label for="">Address</label>
+                    <textarea  class="form-control" name="address" required="required"></textarea>
+                <div class="col-md-12 mt-3">
+                  <div class="form-group">
+                    <input type="submit" value="Create an Account" class="btn btn-info btn-lg">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+		</center>
+    </section>
+{%include 'temfooter.html'%}

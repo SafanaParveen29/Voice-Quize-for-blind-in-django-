@@ -1,0 +1,23 @@
+{%include 'user_header.html'%}
+
+<center><h1 style="padding-top: 20px;font-size: 20px;"><i>Choose Exam Category</i></h1></center>
+
+ <div class="container" style="margin:0 auto;width: 80%;">
+	<form action="{% url 'exam' %}" method="get">{% csrf_token %}
+	<div class="row">
+	<div class="form-group" style="width:700px;">
+		
+		<label>Exam Category:</label><br>
+		<select name='category'  class="form-control" >
+		<option value="">Select</option>
+		{% for i in a %}
+		<option value ={{i.id}}>{{i.name}}</option>
+		{% endfor %}
+		</select><br>
+		
+		<button class="btn btn-success">Choose Exam Category</button>
+	
+	</div>
+ </div>
+</form>
+

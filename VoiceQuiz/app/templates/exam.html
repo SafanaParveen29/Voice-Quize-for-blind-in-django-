@@ -1,0 +1,25 @@
+{% include 'user_header.html' %}
+
+<center><h1 style="padding:40px;font-size: 20px;font-weight: bold;color: green;"><i>Questions</i></h1></center>
+
+ <div class="container" style="margin:0 auto;width: 80%;">
+	<form  method="post" id="invoice_form">{% csrf_token %}
+		<input type="hidden" name="random_num" value="{{num}}">
+		{% for i in question %}
+			
+			<input type="hidden" name="question_id" value="{{i.id}}">
+			<div class="row">
+				<div class="form-group">
+					
+					<label>{{forloop.counter}}) {{i.question}}</label><br>
+					<input type="checkbox" name="answer" value="{{i.option1}}"> {{i.option1}}
+					<input type="checkbox" name="answer" value="{{i.option2}}"> {{i.option2}}
+					<input type="checkbox" name="answer" value="{{i.option3}}"> {{i.option3}}
+					<input type="checkbox" name="answer" value="{{i.option4}}"> {{i.option4}}
+				
+				</div>
+	 		</div>
+ 		{% endfor %}
+ 		<input type="submit" value="Submit" class="btn btn-success">
+	</form>
+</div>
